@@ -4,652 +4,313 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>CrimsonQuill</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <title>CrimsonQuill Brochure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crimson: '#D72638',
+                        inkBlack: '#1C1C1E',
+                        goldOchre: '#F4A261',
+                        ivoryWhite: '#F9F6F1',
+                        fogGray: '#DDE1E4'
+                    },
+                    fontFamily: {
+                        serif: ['"DM Serif Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F9F6F1;
-            color: #1C1C1E;
-            line-height: 1.6;
-        }
-
-        .magazine {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Cover Page */
-        .cover {
-            position: relative;
-            height: 100vh;
-            background-color: #F9F6F1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px;
-            margin-bottom: 40px;
-            border-bottom: 3px solid #D72638;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-        }
-
-        .logo {
-            width: 180px;
-            height: 180px;
-            background-color: #F9F6F1;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px rgba(215, 38, 56, 0.3);
-        }
-
-        .logo-svg-image {
-            width: 75%; /* Adjust as needed to fit within the circle */
-            height: 75%; /* Adjust as needed to fit within the circle */
-            border-radius: 10%;
-          }
-
-        .logo-text {
-            color: white;
-            font-family: 'DM Serif Display', serif;
-            font-size: 24px;
-            letter-spacing: 1px;
-        }
-
-        .cover h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 72px;
-            color: #D72638;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .cover h2 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            font-size: 26px;
-            color: #1C1C1E;
-            margin-bottom: 40px;
-            max-width: 700px;
-        }
-
-        .tagline {
-            font-family: 'DM Serif Display', serif;
-            font-style: italic;
-            font-size: 22px;
-            color: #F4A261;
-            margin-top: 60px;
-        }
-
-        /* Page Layout */
-        .page {
-            margin-bottom: 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header {
-            padding: 30px 0;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #DDE1E4;
-        }
-
-        .page-header h2 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 42px;
-            color: #D72638;
-        }
-
-        .page-header p {
-            font-size: 18px;
-            font-weight: 300;
-            max-width: 700px;
-            margin-top: 15px;
-        }
-
-        .columns {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .column {
-            flex: 1;
-        }
-
-        /* Content Styling */
-        .section {
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: 28px;
-            color: #1C1C1E;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #F4A261;
-        }
-
-        .feature-box {
-            background-color: #DDE1E4;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .feature-box h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 24px;
-            color: #D72638;
-            margin-bottom: 15px;
-        }
-
-        .feature-box p {
-            margin-bottom: 15px;
-        }
-
-        .feature-box ul {
-            list-style-type: none;
-            margin-left: 0;
-        }
-
-        .feature-box ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-        }
-
-        .feature-box ul li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #F4A261;
-            font-size: 20px;
-        }
-
-        .highlight-box {
-            background-color: #D72638;
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin: 40px 0;
-        }
-
-        .highlight-box h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .stat-card {
-            background-color: #F9F6F1;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .stat-card .value {
-            font-family: 'DM Serif Display', serif;
-            font-size: 48px;
-            color: #D72638;
-            margin-bottom: 15px;
-        }
-
-        .stat-card .label {
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .pullquote {
-            font-family: 'DM Serif Display', serif;
-            font-style: italic;
-            font-size: 30px;
-            color: #F4A261;
-            padding: 30px 0;
-            text-align: center;
-            max-width: 800px;
-            margin: 40px auto;
-            border-top: 1px solid #DDE1E4;
-            border-bottom: 1px solid #DDE1E4;
-        }
-
-        .timeline {
-            position: relative;
-            margin: 60px 0;
-            padding-left: 40px;
-        }
-
-        .timeline:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background-color: #F4A261;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .timeline-item:before {
-            content: "";
-            position: absolute;
-            left: -44px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #D72638;
-            border: 3px solid #F4A261;
-        }
-
-        .timeline-item h4 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 22px;
-            color: #D72638;
-            margin-bottom: 10px;
-        }
-
-        /* Call to Action */
-        .cta {
-            background-color: #1C1C1E;
-            color: white;
-            padding: 60px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 80px 0;
-        }
-
-        .cta h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 18px;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #D72638;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 18px;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(215, 38, 56, 0.4);
-        }
-
-        .button:hover {
-            background-color: #F4A261;
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #DDE1E4;
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* Visual Elements */
-        .accent-circle {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: rgba(244, 162, 97, 0.1);
-            z-index: -1;
-        }
-
-        .top-right {
-            top: -50px;
-            right: -50px;
-        }
-
-        .bottom-left {
-            bottom: -50px;
-            left: -50px;
-        }
-
-        .divider {
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, #F9F6F1, #D72638, #F9F6F1);
-            margin: 60px 0;
-        }
-
-        .emoji-icon {
-            font-size: 30px;
-            margin-right: 10px;
-        }
-
-        .page-number {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-family: 'DM Serif Display', serif;
-            font-size: 16px;
-            color: #DDE1E4;
-        }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="magazine">
+<body class="bg-ivoryWhite text-inkBlack font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Cover Page -->
-        <div class="cover">
-            <div class="logo">
-              <div class="logo-circle">
-                  <img src="CrimsonQuillLogoFinal.png" alt="CrimsonQuill Logo" class="logo-svg-image" />
-              </div>
+        <div class="relative min-h-screen flex flex-col justify-center items-center text-center py-12 mb-16 border-b-4 border-crimson shadow-xl">
+            <div class="relative w-40 h-40 mb-8">
+                <div class="absolute inset-0 w-full h-full rounded-full border-4 border-crimson overflow-hidden shadow-lg">
+                    <img src="CrimsonQuillLogoFinal.png" alt="CrimsonQuill Logo" class="w-full h-full object-cover" />
+                </div>
             </div>
-            <h1>CrimsonQuill</h1>
-            <h2>The AI-Powered Assessment Platform Reimagining Education for India and Beyond</h2>
-            <div class="tagline">Where tradition meets innovation in educational assessment</div>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-crimson mb-6 tracking-wide">CrimsonQuill</h1>
+            <h2 class="font-sans font-light text-xl sm:text-2xl lg:text-3xl text-inkBlack mb-10 max-w-3xl">The AI-Powered Assessment Platform Reimagining Education for India and Beyond</h2>
+            <div class="font-serif italic text-lg sm:text-xl text-goldOchre mt-12">
+                Where tradition meets innovation in educational assessment
+            </div>
         </div>
 
         <!-- Introduction Page -->
-        <div class="page">
-            <div class="accent-circle top-right"></div>
-            <div class="page-header">
-                <h2>INVESTMENT OPPORTUNITY</h2>
-                <p>CrimsonQuill represents a paradigm shift in educational assessment technology—an AI-powered grading platform designed specifically for the Indian market with global scalability.</p>
+        <div class="relative mb-24">
+            <div class="absolute w-48 h-48 rounded-full bg-goldOchre/10 -top-12 -right-12 z-0"></div>
+            <div class="relative z-10 py-8 mb-8 border-b border-fogGray">
+                <h2 class="font-serif text-3xl sm:text-4xl text-crimson">INVESTMENT OPPORTUNITY</h2>
+                <p class="mt-4 text-base sm:text-lg max-w-3xl">CrimsonQuill represents a paradigm shift in educational assessment technology—an AI-powered grading platform designed specifically for the Indian market with global scalability.</p>
             </div>
 
-            <div class="pullquote">
+            <div class="font-serif italic text-xl sm:text-2xl text-goldOchre py-8 text-center max-w-4xl mx-auto my-10 border-t border-b border-fogGray">
                 "Building upon proven grading frameworks, CrimsonQuill introduces revolutionary capabilities that dramatically reduce grading time while enhancing assessment quality and educational outcomes."
             </div>
 
-            <div class="section">
-                <h3 class="section-title">MARKET DIFFERENTIATORS</h3>
-                <div class="columns">
-                    <div class="column">
-                        <div class="feature-box">
-                            <h3>UNPRECEDENTED TIME EFFICIENCY</h3>
-                            <p>While traditional grading platforms require 2-24 hours for complete assessment, <strong>CrimsonQuill delivers initial results in under 90 seconds</strong>.</p>
-                            <p>Our AI-driven conceptual grading engine processes student responses with remarkable speed and accuracy, allowing educators to focus on high-value feedback rather than routine evaluation.</p>
-                        </div>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">MARKET DIFFERENTIATORS</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                        <h3 class="font-serif text-xl text-crimson mb-4">UNPRECEDENTED TIME EFFICIENCY</h3>
+                        <p class="mb-4">While traditional grading platforms require 2-24 hours for complete assessment, <strong>CrimsonQuill delivers initial results in under 90 seconds</strong>.</p>
+                        <p>Our AI-driven conceptual grading engine processes student responses with remarkable speed and accuracy, allowing educators to focus on high-value feedback rather than routine evaluation.</p>
                     </div>
-                    <div class="column">
-                        <div class="feature-box">
-                            <h3>INDIA-FIRST APPROACH</h3>
-                            <p>Unlike competitors built for Western educational systems, CrimsonQuill is designed from the ground up for Indian classrooms:</p>
-                            <ul>
-                                <li><strong>Support for 12+ Indian languages</strong> with dialect awareness</li>
-                                <li><strong>Cultural context recognition</strong> that understands regional references</li>
-                                <li><strong>Offline functionality</strong> essential for areas with unreliable connectivity</li>
-                                <li><strong>Privacy-first design</strong> with edge processing and federated learning</li>
-                            </ul>
-                        </div>
+                    <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                        <h3 class="font-serif text-xl text-crimson mb-4">INDIA-FIRST APPROACH</h3>
+                        <p class="mb-4">Unlike competitors built for Western educational systems, CrimsonQuill is designed from the ground up for Indian classrooms:</p>
+                        <ul class="space-y-2">
+                            <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Support for 12+ Indian languages</strong> with dialect awareness</li>
+                            <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Cultural context recognition</strong> that understands regional references</li>
+                            <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Offline functionality</strong> essential for areas with unreliable connectivity</li>
+                            <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Privacy-first design</strong> with edge processing and federated learning</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <h3>CrimsonQuill Transformation</h3>
+            <div class="bg-crimson text-white p-6 sm:p-8 rounded-lg mb-12">
+                <h3 class="font-serif text-2xl mb-4">CrimsonQuill Transformation</h3>
                 <p>CrimsonQuill delivers transformative enhancements across every dimension of the grading experience.</p>
             </div>
 
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="value">&lt;90s</div>
-                    <div class="label">AI-Powered Grading Turnaround</div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-12">
+                <div class="bg-ivoryWhite p-6 rounded-lg text-center shadow-md">
+                    <div class="font-serif text-4xl text-crimson mb-4">&lt;90s</div>
+                    <div class="font-medium">AI-Powered Grading Turnaround</div>
                 </div>
-                <div class="stat-card">
-                    <div class="value">12+</div>
-                    <div class="label">Indian Languages Supported</div>
+                <div class="bg-ivoryWhite p-6 rounded-lg text-center shadow-md">
+                    <div class="font-serif text-4xl text-crimson mb-4">12+</div>
+                    <div class="font-medium">Indian Languages Supported</div>
                 </div>
-                <div class="stat-card">
-                    <div class="value">85%</div>
-                    <div class="label">Reduction in Grading Time</div>
+                <div class="bg-ivoryWhite p-6 rounded-lg text-center shadow-md">
+                    <div class="font-serif text-4xl text-crimson mb-4">85%</div>
+                    <div class="font-medium">Reduction in Grading Time</div>
                 </div>
             </div>
 
-            <div class="page-number">01</div>
+            <div class="absolute bottom-5 right-5 font-serif text-sm text-fogGray">01</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="w-full h-1 bg-gradient-to-r from-ivoryWhite via-crimson to-ivoryWhite my-16"></div>
 
         <!-- Features Page -->
-        <div class="page">
-            <div class="accent-circle bottom-left"></div>
-            <div class="page-header">
-                <h2>COMPREHENSIVE ASSESSMENT ECOSYSTEM</h2>
-                <p>CrimsonQuill transcends traditional assessment boundaries with its revolutionary multimodal evaluation capabilities.</p>
+        <div class="relative mb-24">
+            <div class="absolute w-48 h-48 rounded-full bg-goldOchre/10 -bottom-12 -left-12 z-0"></div>
+            <div class="relative z-10 py-8 mb-8 border-b border-fogGray">
+                <h2 class="font-serif text-3xl sm:text-4xl text-crimson">COMPREHENSIVE ASSESSMENT ECOSYSTEM</h2>
+                <p class="mt-4 text-base sm:text-lg max-w-3xl">CrimsonQuill transcends traditional assessment boundaries with its revolutionary multimodal evaluation capabilities.</p>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">BEYOND TRADITIONAL BOUNDARIES</h3>
-                <div class="feature-box">
-                    <p>CrimsonQuill transcends text-based assessment limitations with:</p>
-                    <ul>
-                        <li><strong>Multimodal evaluation</strong> of text, sketches, diagrams, voice responses, and code</li>
-                        <li><strong>Vision-based grading</strong> for STEM diagrams and mathematical notation</li>
-                        <li><strong>Voice response grading</strong> with regional accent support</li>
-                        <li><strong>Dynamic test case support</strong> for programming assignments</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">BEYOND TRADITIONAL BOUNDARIES</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md mb-10">
+                    <p class="mb-4">CrimsonQuill transcends text-based assessment limitations with:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Multimodal evaluation</strong> of text, sketches, diagrams, voice responses, and code</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Vision-based grading</strong> for STEM diagrams and mathematical notation</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Voice response grading</strong> with regional accent support</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Dynamic test case support</strong> for programming assignments</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">DYNAMIC, EVOLVING RUBRICS</h3>
-                <div class="feature-box">
-                    <p>Unlike static rubric systems that require manual maintenance:</p>
-                    <ul>
-                        <li><strong>AI-generated rubric suggestions</strong> based on response clustering</li>
-                        <li><strong>Self-evolving rubric refinement</strong> through teacher feedback loops</li>
-                        <li><strong>Conceptual grading</strong> that recognizes different approaches to the same problem</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">DYNAMIC, EVOLVING RUBRICS</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <p class="mb-4">Unlike static rubric systems that require manual maintenance:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>AI-generated rubric suggestions</strong> based on response clustering</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Self-evolving rubric refinement</strong> through teacher feedback loops</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Conceptual grading</strong> that recognizes different approaches to the same problem</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="pullquote">
+            <div class="font-serif italic text-xl sm:text-2xl text-goldOchre py-8 text-center max-w-4xl mx-auto my-10 border-t border-b border-fogGray">
                 "CrimsonQuill's advanced AI engine can process and evaluate student responses across multiple modalities with unparalleled speed and accuracy."
             </div>
 
-            <div class="page-number">02</div>
+            <div class="absolute bottom-5 right-5 font-serif text-sm text-fogGray">02</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="w-full h-1 bg-gradient-to-r from-ivoryWhite via-crimson to-ivoryWhite my-16"></div>
 
         <!-- Value Proposition Page -->
-        <div class="page">
-            <div class="page-header">
-                <h2>VALUE PROPOSITION FOR EDUCATORS</h2>
-                <p>CrimsonQuill delivers exceptional value across three critical dimensions of educational assessment.</p>
+        <div class="relative mb-24">
+            <div class="relative z-10 py-8 mb-8 border-b border-fogGray">
+                <h2 class="font-serif text-3xl sm:text-4xl text-crimson">VALUE PROPOSITION FOR EDUCATORS</h2>
+                <p class="mt-4 text-base sm:text-lg max-w-3xl">CrimsonQuill delivers exceptional value across three critical dimensions of educational assessment.</p>
             </div>
 
-            <div class="columns">
-                <div class="column">
-                    <div class="feature-box">
-                        <h3>DRAMATIC TIME SAVINGS</h3>
-                        <p>The average educator spends 7-11 hours per week grading. CrimsonQuill reduces this burden by:</p>
-                        <ul>
-                            <li><strong>Automating 85% of routine grading tasks</strong></li>
-                            <li><strong>Reducing assessment turnaround from days to minutes</strong></li>
-                            <li><strong>Eliminating repetitive feedback</strong> through intelligent comment suggestion</li>
-                        </ul>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <h3 class="font-serif text-xl text-crimson mb-4">DRAMATIC TIME SAVINGS</h3>
+                    <p class="mb-4">The average educator spends 7-11 hours per week grading. CrimsonQuill reduces this burden by:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Automating 85% of routine grading tasks</strong></li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Reducing assessment turnaround from days to minutes</strong></li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Eliminating repetitive feedback</strong> through intelligent comment suggestion</li>
+                    </ul>
                 </div>
-                <div class="column">
-                    <div class="feature-box">
-                        <h3>ACCREDITATION & ANALYTICS</h3>
-                        <p>CrimsonQuill streamlines institutional assessment requirements with:</p>
-                        <ul>
-                            <li><strong>Automatic Course Outcome mapping</strong> that links questions to educational objectives</li>
-                            <li><strong>Detailed performance analytics</strong> for accreditation documentation</li>
-                            <li><strong>Longitudinal learning analytics</strong> to demonstrate program improvements</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3 class="section-title">LEARNING GAP IDENTIFICATION</h3>
-                <div class="feature-box">
-                    <p>Our predictive analytics engine identifies:</p>
-                    <ul>
-                        <li><strong>Individual student knowledge gaps</strong> with personalized intervention recommendations</li>
-                        <li><strong>Class-wide conceptual misunderstandings</strong> requiring re-teaching</li>
-                        <li><strong>Early academic risk detection</strong> with suggested remediation paths</li>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <h3 class="font-serif text-xl text-crimson mb-4">ACCREDITATION & ANALYTICS</h3>
+                    <p class="mb-4">CrimsonQuill streamlines institutional assessment requirements with:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Automatic Course Outcome mapping</strong> that links questions to educational objectives</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Detailed performance analytics</strong> for accreditation documentation</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Longitudinal learning analytics</strong> to demonstrate program improvements</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <h3>From Assessment to Insight</h3>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">LEARNING GAP IDENTIFICATION</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <p class="mb-4">Our predictive analytics engine identifies:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Individual student knowledge gaps</strong> with personalized intervention recommendations</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Class-wide conceptual misunderstandings</strong> requiring re-teaching</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Early academic risk detection</strong> with suggested remediation paths</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-crimson text-white p-6 sm:p-8 rounded-lg mb-12">
+                <h3 class="font-serif text-2xl mb-4">From Assessment to Insight</h3>
                 <p>CrimsonQuill transforms the grading process from a time-consuming chore into a valuable source of actionable insights that improve teaching effectiveness and student outcomes.</p>
             </div>
 
-            <div class="page-number">03</div>
+            <div class="absolute bottom-5 right-5 font-serif text-sm text-fogGray">03</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="w-full h-1 bg-gradient-to-r from-ivoryWhite via-crimson to-ivoryWhite my-16"></div>
 
         <!-- Technology Page -->
-        <div class="page">
-            <div class="page-header">
-                <h2>TECHNOLOGY ADVANTAGES</h2>
-                <p>CrimsonQuill leverages cutting-edge AI and edge computing to deliver a revolutionary assessment experience.</p>
+        <div class="relative mb-24">
+            <div class="relative z-10 py-8 mb-8 border-b border-fogGray">
+                <h2 class="font-serif text-3xl sm:text-4xl text-crimson">TECHNOLOGY ADVANTAGES</h2>
+                <p class="mt-4 text-base sm:text-lg max-w-3xl">CrimsonQuill leverages cutting-edge AI and edge computing to deliver a revolutionary assessment experience.</p>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">ADAPTIVE INTELLIGENCE</h3>
-                <div class="feature-box">
-                    <ul>
-                        <li><strong>Edge-based processing</strong> for privacy and reduced latency</li>
-                        <li><strong>Federated learning model</strong> that improves with use while protecting data</li>
-                        <li><strong>Regional language NLP</strong> trained specifically on Indian educational contexts</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">ADAPTIVE INTELLIGENCE</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Edge-based processing</strong> for privacy and reduced latency</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Federated learning model</strong> that improves with use while protecting data</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Regional language NLP</strong> trained specifically on Indian educational contexts</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">SEAMLESS WORKFLOW INTEGRATION</h3>
-                <div class="feature-box">
-                    <ul>
-                        <li><strong>Offline capability</strong> with later synchronization</li>
-                        <li><strong>Real-time draft scores</strong> during the grading process</li>
-                        <li><strong>Dynamic test case generation</strong> for programming assignments</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">SEAMLESS WORKFLOW INTEGRATION</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Offline capability</strong> with later synchronization</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Real-time draft scores</strong> during the grading process</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Dynamic test case generation</strong> for programming assignments</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">ROADMAP INNOVATIONS</h3>
-                <div class="feature-box">
-                    <ul>
-                        <li><strong>Immersive feedback</strong> with AR overlays and 3D visualizations</li>
-                        <li><strong>Interactive video walkthroughs</strong> for complex concept explanation</li>
-                        <li><strong>Enhanced predictive interventions</strong> linked to learning resources</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">ROADMAP INNOVATIONS</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Immersive feedback</strong> with AR overlays and 3D visualizations</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Interactive video walkthroughs</strong> for complex concept explanation</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Enhanced predictive interventions</strong> linked to learning resources</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="pullquote">
+            <div class="font-serif italic text-xl sm:text-2xl text-goldOchre py-8 text-center max-w-4xl mx-auto my-10 border-t border-b border-fogGray">
                 "Our technological foundation combines state-of-the-art AI with thoughtful design choices that prioritize privacy, accessibility, and contextual understanding."
             </div>
 
-            <div class="page-number">04</div>
+            <div class="absolute bottom-5 right-5 font-serif text-sm text-fogGray">04</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="w-full h-1 bg-gradient-to-r from-ivoryWhite via-crimson to-ivoryWhite my-16"></div>
 
         <!-- Investment Page -->
-        <div class="page">
-            <div class="page-header">
-                <h2>INVESTMENT HIGHLIGHTS</h2>
-                <p>CrimsonQuill presents a compelling opportunity in the rapidly growing educational technology market.</p>
+        <div class="relative mb-24">
+            <div class="relative z-10 py-8 mb-8 border-b border-fogGray">
+                <h2 class="font-serif text-3xl sm:text-4xl text-crimson">INVESTMENT HIGHLIGHTS</h2>
+                <p class="mt-4 text-base sm:text-lg max-w-3xl">CrimsonQuill presents a compelling opportunity in the rapidly growing educational technology market.</p>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">COMPETITIVE ADVANTAGE</h3>
-                <div class="feature-box">
-                    <p>CrimsonQuill enters the market with significant advantages over existing players:</p>
-                    <ul>
-                        <li><strong>Specialized for Indian educational needs</strong> with global expansion potential</li>
-                        <li><strong>90-second assessment</strong> versus hours-long competitor processes</li>
-                        <li><strong>Multimodal capabilities</strong> that far exceed text-only alternatives</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">COMPETITIVE ADVANTAGE</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <p class="mb-4">CrimsonQuill enters the market with significant advantages over existing players:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Specialized for Indian educational needs</strong> with global expansion potential</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>90-second assessment</strong> versus hours-long competitor processes</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Multimodal capabilities</strong> that far exceed text-only alternatives</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">SCALABLE BUSINESS MODEL</h3>
-                <div class="feature-box">
-                    <p>Our pricing structure is designed for accessibility and growth:</p>
-                    <ul>
-                        <li><strong>Affordable for Indian educational institutions</strong></li>
-                        <li><strong>Tiered subscription model</strong> with institutional adoption incentives</li>
-                        <li><strong>Rapid MVP deployment</strong> with feature expansion roadmap</li>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">SCALABLE BUSINESS MODEL</h3>
+                <div class="bg-fogGray p-6 sm:p-8 rounded-lg shadow-md">
+                    <p class="mb-4">Our pricing structure is designed for accessibility and growth:</p>
+                    <ul class="space-y-2">
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Affordable for Indian educational institutions</strong></li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Tiered subscription model</strong> with institutional adoption incentives</li>
+                        <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-goldOchre before:text-xl"><strong>Rapid MVP deployment</strong> with feature expansion roadmap</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">GROWTH TRAJECTORY</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>Phase 1: India Launch</h4>
+            <div class="mb-12">
+                <h3 class="font-serif text-2xl text-inkBlack mb-5 pb-2 border-b-2 border-goldOchre">GROWTH TRAJECTORY</h3>
+                <div class="relative pl-10 my-12">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-0 top-0 h-full w-1 bg-goldOchre"></div>
+
+                    <!-- Timeline Items -->
+                    <div class="relative mb-10">
+                        <div class="absolute left-[-40px] top-1 w-4 h-4 rounded-full bg-crimson border-2 border-goldOchre"></div>
+                        <h4 class="font-serif text-xl text-crimson mb-2">Phase 1: India Launch</h4>
                         <p>Pilot deployments in key Indian educational institutions with continuous refinement based on user feedback.</p>
                     </div>
-                    <div class="timeline-item">
-                        <h4>Phase 2: Regional Expansion</h4>
+                    <div class="relative mb-10">
+                        <div class="absolute left-[-40px] top-1 w-4 h-4 rounded-full bg-crimson border-2 border-goldOchre"></div>
+                        <h4 class="font-serif text-xl text-crimson mb-2">Phase 2: Regional Expansion</h4>
                         <p>Expansion across India with language specialization and enhanced regional context understanding.</p>
                     </div>
-                    <div class="timeline-item">
-                        <h4>Phase 3: Global Markets</h4>
+                    <div class="relative mb-10">
+                        <div class="absolute left-[-40px] top-1 w-4 h-4 rounded-full bg-crimson border-2 border-goldOchre"></div>
+                        <h4 class="font-serif text-xl text-crimson mb-2">Phase 3: Global Markets</h4>
                         <p>Targeted expansion to similar markets globally, adapting our proven model to new educational contexts.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="page-number">05</div>
+            <div class="absolute bottom-5 right-5 font-serif text-sm text-fogGray">05</div>
         </div>
 
         <!-- Call to Action -->
-        <div class="cta">
-            <h3>JOIN US IN TRANSFORMING EDUCATIONAL ASSESSMENT</h3>
-            <p>CrimsonQuill isn't just another edtech platform—it's a comprehensive reimagining of how we evaluate learning in the digital age. By dramatically reducing grading time while enhancing assessment quality, we're creating more meaningful educational experiences.</p>
-            <a href="#" class="button">Contact Us</a>
+        <div class="bg-inkBlack text-white p-8 sm:p-12 rounded-xl text-center my-16">
+            <h3 class="font-serif text-2xl sm:text-3xl mb-5">JOIN US IN TRANSFORMING EDUCATIONAL ASSESSMENT</h3>
+            <p class="max-w-3xl mx-auto mb-8 text-base sm:text-lg">CrimsonQuill isn't just another edtech platform—it's a comprehensive reimagining of how we evaluate learning in the digital age. By dramatically reducing grading time while enhancing assessment quality, we're creating more meaningful educational experiences.</p>
+            <a href="mailto:info@uluka.ai" class="inline-block bg-crimson text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg transition-all hover:bg-goldOchre hover:-translate-y-1">Contact Us</a>
         </div>
 
         <!-- Footer -->
-        <div class="footer">
-            <p>CrimsonQuill: Where tradition meets innovation in educational assessment.</p>
+        <div class="text-center py-10 border-t border-fogGray text-sm text-gray-500">
+            <p class="mb-2">CrimsonQuill: Where tradition meets innovation in educational assessment.</p>
             <p>&copy; 2025 CrimsonQuill. All rights reserved.</p>
         </div>
     </div>
